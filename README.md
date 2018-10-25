@@ -1,5 +1,21 @@
 # README
 
+## Сущности проекта
+
+- [ ] Вопрос
+- [ ] Ответ
+- [ ] Раздел знаний
+- [ ] Тест
+- [ ] Квиз (набор тестов)
+- [ ] Тестовый процесс
+- [ ] Пользователь
+- [ ] Дашборд
+- [ ] Администратор
+- [ ] Админка
+- [ ] Топик
+- [ ] Комментарий
+- [ ] Рейтинг
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
