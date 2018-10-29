@@ -1,5 +1,3 @@
 class User < ApplicationRecord
-  def tests_by_level(level)
-
-  end
+  has_and_belongs_to_many :tests
 end
