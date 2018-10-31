@@ -44,18 +44,18 @@ ActiveRecord::Schema.define(version: 2018_10_29_062305) do
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
 
+  create_table "tests_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.index ["test_id"], name: "index_tests_users_on_test_id"
+    t.index ["user_id"], name: "index_tests_users_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "login", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_tests", id: false, force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "tests_id"
-    t.index ["tests_id"], name: "index_users_tests_on_tests_id"
-    t.index ["users_id"], name: "index_users_tests_on_users_id"
   end
 
 end

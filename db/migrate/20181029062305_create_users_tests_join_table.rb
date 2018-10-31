@@ -1,8 +1,8 @@
 class CreateUsersTestsJoinTable < ActiveRecord::Migration[5.2]
   def change
-    create_table :users_tests, id: false do |t|
-      t.belongs_to :users, index: true
-      t.belongs_to :tests, index: true
+    create_table :tests_users, id: false do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :test, index: true
     end
   end
 end
