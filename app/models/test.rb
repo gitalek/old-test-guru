@@ -7,6 +7,10 @@ class Test < ApplicationRecord
   has_many :tests_users
   has_many :users, through: :tests_users
 
+  validates :level, numericality: { only_integer: true }
+  validates :title, presence: true
+  validate :validate_level_title_uniqueness
+
   # def self.select_by_category(category)
   #   self.joins(:category)
   #     .where(categories: { title: category })
@@ -25,4 +29,11 @@ class Test < ApplicationRecord
   scope :hard,   -> { where(level: 3..Float::INFINITY) }
 
   scope :by_level, -> (level) { where(level: level) }
+
+  private
+
+  def validate_level_title_uniqueness
+    records = self.class.where(level: level, title: title)
+    errors[:base] << 'not uniq attributes' unless records.empty?
+  end
 end
