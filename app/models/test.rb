@@ -13,4 +13,8 @@ class Test < ApplicationRecord
       .order(title: :desc)
       .pluck(:title)
   end
+
+  scope :simple, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard,   -> { where(level: 3..Float::INFINITY) }
 end
