@@ -14,11 +14,11 @@ categories_data = [
 categories = Category.create!(categories_data)
 
 users_data = [
-  { name: 'Tony', login: 'Boss' },
-  { name: 'Silvio', login: 'Sil' },
-  { name: 'Paulie', login: 'Paoluccio' },
-  { name: 'Parvati', login: 'Jan' },
-  { name: 'Richard', login: 'Richie' }
+  { name: 'Tony', login: 'Boss', email: 'tony@boss.sop' },
+  { name: 'Silvio', login: 'Sil', email: 'silvio@sil.sop' },
+  { name: 'Paulie', login: 'Paoluccio', email: 'paulie@paoluccio.sop' },
+  { name: 'Parvati', login: 'Jan', email: 'parvaty@jan.sop' },
+  { name: 'Richard', login: 'Richie', email: 'richard@richie.sop' }
 ]
 users = User.create!(users_data)
 
@@ -78,7 +78,7 @@ answers_data = [
   { question_id: questions[0].id, body: 'i', correct: false },
   { question_id: questions[0].id, body: 'div', correct: false },
   { question_id: questions[0].id, body: 'weight', correct: false },
-  { question_id: questions[0].id, body: 'bold', correct: false },
+  # { question_id: questions[0].id, body: 'bold', correct: false },
   { question_id: questions[1].id, body: '<img src="link_to_img.jpg">', correct: true },
   { question_id: questions[1].id, body: '<img alt="link_to_img.jpg">', correct: false },
   { question_id: questions[1].id, body: '<img href="link_to_img.jpg">', correct: false },
@@ -93,7 +93,7 @@ answers_data = [
   { question_id: questions[3].id, body: 'Link', correct: false },
 
   { question_id: questions[4].id, body: 'fn', correct: true },
-  { question_id: questions[4].id, body: 'funct', correct: false },
+  # { question_id: questions[4].id, body: 'funct', correct: false },
   { question_id: questions[4].id, body: 'function', correct: false },
   { question_id: questions[4].id, body: 'new', correct: false },
   { question_id: questions[4].id, body: 'main', correct: false },
