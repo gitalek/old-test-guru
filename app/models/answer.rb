@@ -2,12 +2,13 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
-  validate :validate_answers_limit
+  validate :validate_answers_limit, on: :create
+
 
   private
 
   def validate_answers_limit
-    limit = question.class::ANSWERS_MAX_LIMIT
+    limit = Question::ANSWERS_MAX_LIMIT
     errors.add(:base, "Quesiton with id #{question_id} has already achieved maximum answers limit - #{limit}") if question.answers.count >= limit
   end
 end
