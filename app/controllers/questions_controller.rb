@@ -1,24 +1,24 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index]
+  before_action :find_test, only: %i[index create]
   before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    view = @test.questions.inspect
-    render plain: view
+    data = @test.questions.inspect
+    render plain: data
   end
 
   def show
-    view = @question.inspect
-    render plain: view
+    data = @question.inspect
+    render plain: data
   end
 
   def new; end
 
   def create
-    question = Question.create!(question_params)
-    render plain: test.inspect
+    question = @test.questions.create!(question_params)
+    render plain: question.inspect
   end
 
   def destroy
@@ -38,11 +38,11 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found
-    view = "The question with id - #{params[:id]} wasn\'t found"
-    render plain: view
+    data = "The question with id - #{params[:id]} wasn\'t found"
+    render plain: data, status: :not_found
   end
 end
